@@ -1,104 +1,149 @@
 <!DOCTYPE html>
-<a href="http://thahim.github.io/ast/gallary.html">hello</a>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abdul Salam Thahim - The Heroic Kid</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+  <title>Abdul Salam's Moments</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Fredoka', sans-serif;
-      background: linear-gradient(to bottom right, #8e2de2, #4a00e0);
+      font-family: 'Fredoka One', cursive;
+      background: linear-gradient(to bottom, #6a1b9a, #ba68c8);
+      overflow-x: hidden;
+      position: relative;
       color: #fff;
     }
-    header {
+
+    h1 {
       text-align: center;
-      padding: 2rem;
-      background: #2d0036;
+      color: #f3e5f5;
+      padding: 30px 10px 10px;
+      font-size: 3em;
+      text-shadow: 2px 2px #4a148c;
     }
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
+
+    .nav {
+      text-align: center;
+      margin-bottom: 20px;
     }
-    header p {
-      font-size: 1.2rem;
-      color: #e0c4ff;
+
+    .nav a {
+      color: #fff;
+      background: #8e24aa;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: background 0.3s;
     }
-    .hero-img {
-      display: block;
-      margin: 2rem auto;
-      width: 200px;
-      height: 200px;
-      background: url('https://thahim.github.io/ast/images/IMG-20250516-WA0027.jpg') no-repeat center/cover;
+
+    .nav a:hover {
+      background: #ab47bc;
+    }
+
+    .main-pic {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .main-pic img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
       border-radius: 50%;
-      border: 5px solid #fff;
+      border: 10px solid #f3e5f5;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
-    .section {
-      padding: 2rem;
+
+    .description {
       max-width: 800px;
-      margin: auto;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      margin-bottom: 2rem;
-    }
-    .section h2 {
+      margin: 30px auto;
+      font-size: 1.2em;
+      line-height: 1.6em;
+      padding: 0 20px;
       text-align: center;
-      margin-bottom: 1rem;
-      color: #ffddff;
     }
-    .superpower {
-      font-weight: bold;
-      color: #ffeb3b;
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 30px;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #1b0030;
+
+    .image-frame {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px dashed #fff;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s;
+      background: #f3e5f5;
+      position: relative;
+    }
+
+    .image-frame:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .trail {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f8bbd0, #ba68c8);
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.8;
+      animation: fadeOut 0.5s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(2);
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Abdul Salam Thahim</h1>
-    <p>The 9-Year-Old Legend with a Heart of Gold and a Drone Army</p>
-  </header>
-  <div class="hero-img"></div>
-  <section class="section">
-    <h2>Heroic Profile</h2>
-    <p><strong>Age:</strong> 9 years old</p>
-    <p><strong>Location:</strong> Bangkok, Thailand</p>
-    <p><strong>Known For:</strong> Calling the Adhan like a true Muazzin, flying not one, not two, but <em>three drones</em> like a pro, and having a smile that melts hearts!</p>
-  </section>
-  <section class="section">
-    <h2>Superpowers</h2>
-    <ul>
-      <li class="superpower">Drone Commander – Master of the P10, P14 Pro, and the upcoming mystery drone</li>
-      <li class="superpower">Adhan Warrior – Delivers the call to prayer with heroic voice</li>
-      <li class="superpower">Cuteness Overload – Can disarm any adult with one smile</li>
-    </ul>
-  </section>
-  <section class="section">
-    <h2>Family & Background</h2>
-    <p>Son of Saad Thahim, Abdul Salam is a proud part of the Thahim legacy. He’s loved by his father, respected in his village, and cheered by TikTok fans across the world!</p>
-  </section>
-  <section class="section">
-    <h2>Fun Facts</h2>
-    <ul>
-      <li>Loves tech gadgets and flying drones.</li>
-      <li>Has a fan base on TikTok thanks to his heroic activities.</li>
-      <li>Once called the Adhan like a professional Muazzin at age 9!</li>
-    </ul>
-  </section>
-  <footer>
-    <p>&copy; 2025 The Adventures of Abdul Salam Thahim</p>
-    <p>Stay tuned for his next heroic mission!</p>
-  </footer>
+  <h1>Abdul Salam's Moments</h1>
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+  </div>
+
+  <div class="main-pic">
+    <img src="https://raw.githubusercontent.com/thahim/ast/main/images/IMG-20250516-WA0027.jpg" alt="Abdul Salam">
+  </div>
+
+  <div class="description">
+    <p>Abdul Salam Thahim is a bright and loving 9-year-old boy with a heart full of curiosity and a spirit full of joy. He has a natural charm and a warm smile that lights up every room he enters. Abdul loves exploring new technologies and has a growing interest in drones. His voice has echoed beautifully through the Adhan, and he enjoys capturing moments through pictures and videos. This website is a tribute to his wonderful memories and special moments that define his childhood journey.</p>
+  </div>
+
   <script>
-    // Heroic Animation
-    document.querySelector('header h1').addEventListener('mouseover', () => {
-      alert("Abdul Salam is watching you. Be good!");
+    document.addEventListener("mousemove", (e) => {
+      const trail = document.createElement("div");
+      trail.className = "trail";
+      trail.style.left = `${e.pageX}px`;
+      trail.style.top = `${e.pageY}px`;
+      document.body.appendChild(trail);
+
+      setTimeout(() => {
+        trail.remove();
+      }, 500);
     });
   </script>
 </body>
