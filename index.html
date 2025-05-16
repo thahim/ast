@@ -1,75 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abdul Salam's World</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Fredoka One', cursive;
-      background: linear-gradient(to bottom right, #6a0dad, #b19cd9);
-      color: white;
-      cursor: url('superhero-pointer.png'), auto;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Abdul Salam's World</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+<style>
+  body {
+    margin: 0;
+    font-family: 'Fredoka One', cursive;
+    background: linear-gradient(to bottom right, #6a0dad, #b19cd9);
+    color: white;
+    /* Superhero cursor SVG encoded in base64 */
+    cursor: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUyIDAgMTAgNC40OCAxMCAxMHMtNC40OCAxMC0xMCAxMFMyID'+
+  'E3LjUyIDIgMTJjMC01LjUyIDQuNDgtMTAgMTAtMTB6bTAgMmMtNC40MyAwLTggMy41Ny04IDhzMy41NyA4IDggOCA4LTMuNTcgOC04LTMuNTctOC04LTggeiIvPjwvc3ZnPg==') 12 12, auto;
+  }
 
-    nav {
-      background-color: rgba(255, 255, 255, 0.2);
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-    }
+  nav {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
 
-    main {
-      text-align: center;
-      padding: 2rem;
-    }
+  nav a:hover {
+    color: #ff69b4;
+    text-shadow: 0 0 5px #ff69b4;
+  }
 
-    .round-image {
-      border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      margin: 1rem;
-      border: 5px solid white;
-    }
+  main {
+    text-align: center;
+    padding: 2rem;
+  }
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+  .round-image {
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    margin: 1rem auto;
+    border: 5px solid white;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: block;
+    cursor: pointer;
+  }
 
-    .pointer-trail {
-      position: fixed;
-      width: 15px;
-      height: 15px;
-      background: radial-gradient(circle, #ff69b4, #a020f0);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-    }
+  .round-image:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 0 15px 5px #ff69b4;
+  }
 
-    .section {
-      display: none;
-    }
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
 
-    .active {
-      display: block;
-    }
-  </style>
+  .pointer-trail {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #ff69b4, #a020f0);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .section {
+    display: none;
+  }
+
+  .active {
+    display: block;
+  }
+
+  /* Additional info styling */
+  .info-box {
+    background: rgba(255 255 255 / 0.1);
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    margin: 1.5rem auto;
+    max-width: 600px;
+    cursor: default;
+  }
+
+  .info-box a {
+    color: #ff69b4;
+    font-weight: bold;
+    text-decoration: none;
+    transition: text-shadow 0.3s ease;
+  }
+
+  .info-box a:hover {
+    text-shadow: 0 0 8px #ff69b4;
+  }
+</style>
 </head>
 <body>
   <div class="pointer-trail" id="trail"></div>
@@ -82,8 +120,19 @@
   <main>
     <section id="home" class="section active">
       <h1>Welcome to Abdul Salam's World</h1>
-      <img src="main-photo.png" alt="Abdul Salam" class="round-image" />
+      <img src="main-photo.png" alt="Abdul Salam" class="round-image" title="This is Abdul Salam! Click for fun!" />
       <p>This is a fun space made just for Abdul Salam, filled with joy, color, and adventures!</p>
+
+      <div class="info-box">
+        <h2>About Abdul Salam</h2>
+        <p>Abdul Salam loves exploring new things, playing with drones, and learning about technology.</p>
+        <p>Check out his favorite videos on <a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a> and follow him on <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>.</p>
+      </div>
+
+      <div class="info-box">
+        <h2>Learn & Play</h2>
+        <p>Want to know more? Visit the <a href="https://en.wikipedia.org/wiki/Technology" target="_blank" rel="noopener">Technology Wiki</a> or explore fun games like <a href="https://www.coolmathgames.com/" target="_blank" rel="noopener">Cool Math Games</a>.</p>
+      </div>
     </section>
 
     <section id="gallery" class="section">
@@ -96,19 +145,24 @@
     </section>
   </main>
 
-  <script>
-    // Pointer trail
-    const trail = document.getElementById("trail");
-    document.addEventListener("mousemove", (e) => {
-      trail.style.top = `${e.clientY}px`;
-      trail.style.left = `${e.clientX}px`;
-    });
+<script>
+  // Pointer trail effect
+  const trail = document.getElementById("trail");
+  document.addEventListener("mousemove", (e) => {
+    trail.style.top = e.clientY + "px";
+    trail.style.left = e.clientX + "px";
+  });
 
-    // Navigation
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
+  // Navigation toggle
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  // Optional: fun click on main image
+  document.querySelector('.round-image').addEventListener('click', () => {
+    alert('Hello from Abdul Salam! Keep exploring and having fun!');
+  });
+</script>
 </body>
 </html>
