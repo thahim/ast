@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdul Salam's Moments</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      background: linear-gradient(to bottom, #e1bee7, #ce93d8);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      color: #6a1b9a;
+      padding: 30px 10px 10px;
+      font-size: 3em;
+      text-shadow: 2px 2px white;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 30px;
+    }
+
+    .image-frame {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px dashed #fff;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s;
+      background: #f3e5f5;
+      position: relative;
+    }
+
+    .image-frame:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .trail {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f8bbd0, #ba68c8);
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.8;
+      animation: fadeOut 0.5s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Abdul Salam's Moments</h1>
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    const imageUrls = [
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20180710_213734.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20180711_122721.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20180712_153354.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20180713_140814.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20180713_184537.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20180714_133430(1).jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20180714_152723.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20180714_172558(1).jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20180715_081519.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20180717_125010.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20240901_095239(1).jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20240904_094405(1).jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/20240906_131245(1).jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/FB_IMG_1711472256239.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/IMG-20250516-WA0027.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20200131-171822_Photos.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20200526-030001_Photos.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20250516_161020_Photos.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20250516_161121_Photos.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20250516_161156_Photos.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20250516_161209_Photos.jpg",
+      "https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20250516_161316_Photos.jpg"
+    ];
+
+    const gallery = document.getElementById("gallery");
+    imageUrls.forEach((url) => {
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.className = "image-frame";
+
+      const img = document.createElement("img");
+      img.src = url;
+      link.appendChild(img);
+
+      gallery.appendChild(link);
+    });
+
+    // Colorful pointer trail
+    document.addEventListener("mousemove", (e) => {
+      const trail = document.createElement("div");
+      trail.className = "trail";
+      trail.style.left = `${e.pageX}px`;
+      trail.style.top = `${e.pageY}px`;
+      document.body.appendChild(trail);
+
+      setTimeout(() => {
+        trail.remove();
+      }, 500);
+    });
+  </script>
+</body>
+</html>
