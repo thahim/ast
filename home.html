@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All My Projects - Thahim & Sons</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background: #f9faff;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 40px 20px 20px;
+      text-align: center;
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+      color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .project-link {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      padding: 20px 25px;
+      font-size: 1.25rem;
+      color: #0072ff;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-link:hover,
+    .project-link:focus {
+      border-color: #00c6ff;
+      box-shadow: 0 8px 20px rgba(0,194,255,0.3);
+      outline: none;
+    }
+
+    .project-link::after {
+      content: "→";
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #0072ff;
+      transition: transform 0.3s ease;
+    }
+
+    .project-link:hover::after,
+    .project-link:focus::after {
+      transform: translateX(5px);
+    }
+
+    footer {
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 25px 20px 40px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    footer .developer-badge {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    footer .copyright {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    footer img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #00c6ff;
+      object-fit: cover;
+      margin-top: 15px;
+      box-shadow: 0 4px 10px rgba(0,194,255,0.4);
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 20px 15px;
+        max-width: 100%;
+      }
+
+      .project-link {
+        font-size: 1.1rem;
+        padding: 15px 20px;
+      }
+
+      footer img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>All my projects</h1>
+  </header>
+
+  <main>
+    <a href="https://thahim.github.io/ast" target="_blank" rel="noopener" class="project-link">
+      Abdul Salam Thahims Personal Home
+    </a>
+
+    <a href="https://thahim.github.io/kbc" target="_blank" rel="noopener" class="project-link">
+      Who Wants to Be a Millionaire?
+    </a>
+
+    <a href="https://thahim.github.io/google" target="_blank" rel="noopener" class="project-link">
+      Thahim Google Link
+    </a>
+  </main>
+
+  <footer>
+    <div class="developer-badge">Designed and developed by Thahim & Sons</div>
+    <img src="https://thahim.github.io/ast/images/IMG-20250516-WA0027.jpg" alt="Abdul Salam Thahim" />
+
+    <div class="copyright">&copy; 2025 Thahim & Sons. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
+
