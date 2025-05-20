@@ -1,182 +1,277 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      
-      <meta property="og:title" content="Abdul Salam Thahim">
-      
-      <meta property="og:description" content="Abdul salams life & hobbies 😄👨‍💼⚽">
-     <meta property="og:image" content="http://thahim.github.io/ast/images/IMG-20250516-WA0027.jpg">
-      <meta property="og:url" content="https://yourwebsite.com">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abdul Salam's World</title>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Abdul Salam's World</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
-<style>
-  body {
-    margin: 0;
-    font-family: 'Fredoka One', cursive;
-    background: linear-gradient(to bottom right, #6a0dad, #b19cd9);
-    color: white;
-    /* Superhero cursor SVG encoded in base64 */
-    cursor: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUyIDAgMTAgNC40OCAxMCAxMHMtNC40OCAxMC0xMCAxMFMyID'+
-  'E3LjUyIDIgMTJjMC01LjUyIDQuNDgtMTAgMTAtMTB6bTAgMmMtNC40MyAwLTggMy41Ny04IDhzMy41NyA4IDggOCA4LTMuNTcgOC04LTMuNTctOC04LTggeiIvPjwvc3ZnPg==') 12 12, auto;
-  }
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Abdul Salam Thahim" />
+  <meta property="og:description" content="Abdul Salam's life & hobbies 😄👨‍💼⚽" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/thahim/ast/main/images/IMG-20250516-WA0027.jpg" />
+  <meta property="og:url" content="https://yourwebsite.com" />
 
-  nav {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-  }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
 
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
+  <style>
+    /* ─────────────────────────────────────────────────────────────────────────
+       Base & Theme
+    ───────────────────────────────────────────────────────────────────────── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Fredoka One', cursive;
+      background: linear-gradient(to bottom right, #6a0dad, #b19cd9);
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+      cursor: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUyIDAgMTAgNC40OCAxMCAxMHMtNC40OCAxMC0xMCAxMFMyIDE3LjUyIDIgMTJjMC01LjUyIDQuNDgtMTAgMTAtMTB6bTAgMmMtNC40MyAwLTggMy41Ny04IDhzMy41NyA4IDggOCA4LTMuNTcgOC04LTMuNTctOC04LTggeiIvPjwvc3ZnPg==') 12 12, auto;
+    }
+    nav {
+      background: rgba(255,255,255,0.2);
+      padding: 1rem; display: flex;
+      justify-content: center; gap: 2rem;
+    }
+    nav a {
+      color: white; text-decoration: none;
+      font-size: 1.2rem; transition: color .3s;
+    }
+    nav a:hover { color: #ff69b4; text-shadow: 0 0 5px #ff69b4; }
 
-  nav a:hover {
-    color: #ff69b4;
-    text-shadow: 0 0 5px #ff69b4;
-  }
+    main {
+      max-width: 900px; margin: 2rem auto;
+      text-align: center; padding: 0 1rem;
+    }
+    h1 { margin-bottom: 1rem; }
 
-  main {
-    text-align: center;
-    padding: 2rem;
-  }
+    /* ─────────────────────────────────────────────────────────────────────────
+       Image Styles & Modal
+    ───────────────────────────────────────────────────────────────────────── */
+    .round-image {
+      border-radius: 50%;
+      width: 220px; height: 220px;
+      object-fit: cover;
+      margin: 1rem auto;
+      border: 5px solid white;
+      transition: transform .6s ease, box-shadow .6s ease;
+      cursor: pointer;
+      display: block;
+    }
+    .round-image:hover {
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: 0 0 15px 5px #ff69b4;
+    }
 
-  .round-image {
-    border-radius: 50%;
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    margin: 1rem auto;
-    border: 5px solid white;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    display: block;
-    cursor: pointer;
-  }
+    /* Gallery grid */
+    .gallery {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 1rem;
+      margin-top: 2rem;
+    }
+    .gallery img { width: 140px; height: 140px; border: 3px solid white; }
 
-  .round-image:hover {
-    transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 0 15px 5px #ff69b4;
-  }
+    /* Modal overlay */
+    .modal {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none; align-items: center; justify-content: center;
+      animation: fadeIn 0.8s forwards;
+      z-index: 10000;
+    }
+    .modal.active { display: flex; }
+    .modal-content {
+      position: relative;
+      max-width: 90%; max-height: 90%;
+      animation: zoomIn 0.6s ease;
+    }
+    .modal-content img {
+      width: 100%; height: auto;
+      border-radius: 10px;
+    }
+    .modal-caption {
+      color: #ff69b4; text-align: center;
+      margin-top: .5rem; font-size: 1.1rem;
+    }
+    .modal-close {
+      position: absolute; top: -10px; right: -10px;
+      background: #ff69b4; border: none; border-radius: 50%;
+      width: 30px; height: 30px; font-size: 1.2rem;
+      cursor: pointer; color: white;
+      box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
 
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0 } to { opacity: 1 }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8) } to { transform: scale(1) }
+    }
 
-  .pointer-trail {
-    position: fixed;
-    width: 15px;
-    height: 15px;
-    background: radial-gradient(circle, #ff69b4, #a020f0);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-  }
+    /* ─────────────────────────────────────────────────────────────────────────
+       Button Styles
+    ───────────────────────────────────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      margin: 1rem; padding: .8rem 1.6rem;
+      background: #ff69b4; border: none;
+      border-radius: 8px; font-size: 1rem;
+      cursor: pointer; transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ff69b4;
+    }
 
-  .section {
-    display: none;
-  }
+    /* ─────────────────────────────────────────────────────────────────────────
+       Falling Stars & Hearts
+    ───────────────────────────────────────────────────────────────────────── */
+    .particle {
+      position: fixed; top: -2rem; width: 1rem; height: 1rem;
+      opacity: 0.8; z-index: 5000;
+      animation: fall 15s linear infinite;
+    }
+    .particle.star { background: url('data:image/svg+xml;utf8,\
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+      <path fill="gold" d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21z"/>\
+      </svg>') no-repeat center/contain;
+    }
+    .particle.heart { background: url('data:image/svg+xml;utf8,\
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+      <path fill="hotpink" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5C2 5.42 \
+        4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 \
+        3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 \
+        8.5c0 3.78-3.4 6.86-8.55 \
+        11.54L12 21.35z"/>\
+      </svg>') no-repeat center/contain;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-2rem) rotate(0deg); }
+      100% { transform: translateY(120vh) rotate(360deg); }
+    }
 
-  .active {
-    display: block;
-  }
-
-  /* Additional info styling */
-  .info-box {
-    background: rgba(255 255 255 / 0.1);
-    border: 2px solid #ff69b4;
-    border-radius: 15px;
-    padding: 1rem 2rem;
-    margin: 1.5rem auto;
-    max-width: 600px;
-    cursor: default;
-  }
-
-  .info-box a {
-    color: #ff69b4;
-    font-weight: bold;
-    text-decoration: none;
-    transition: text-shadow 0.3s ease;
-  }
-
-  .info-box a:hover {
-    text-shadow: 0 0 8px #ff69b4;
-  }
-</style>
-      
-      // Hello World
-      
-      <meta property "og:title" content="hello saain">
-
-      
+    /* ─────────────────────────────────────────────────────────────────────────
+       Pointer Trail
+    ───────────────────────────────────────────────────────────────────────── */
+    .pointer-trail {
+      position: fixed; width: 12px; height: 12px;
+      background: radial-gradient(circle,#ff69b4,#a020f0);
+      border-radius: 50%; pointer-events: none;
+      z-index: 9999; transition: top .03s, left .03s;
+    }
+    @media (pointer: coarse) {
+      /* larger trail on touch devices */
+      .pointer-trail { width: 20px; height: 20px; }
+    }
+  </style>
 </head>
-<body>
-  <div class="pointer-trail" id="trail"></div>
 
+<body>
+  <!-- Falling particles -->
+  <script>
+    const count = 30;
+    for(let i=0;i<count;i++){
+      const p = document.createElement('div');
+      p.className = 'particle ' + (Math.random()<0.5?'star':'heart');
+      p.style.left = (Math.random()*100)+'vw';
+      p.style.animationDuration = (10 + Math.random()*20)+'s';
+      p.style.opacity = 0.5 + Math.random()*0.5;
+      document.body.appendChild(p);
+    }
+  </script>
+
+  <!-- Pointer/Touch trail -->
+  <div id="trail" class="pointer-trail"></div>
+  <script>
+    const trail = document.getElementById('trail');
+    function moveTrail(x,y){
+      trail.style.left = (x - trail.offsetWidth/2) + 'px';
+      trail.style.top  = (y - trail.offsetHeight/2) + 'px';
+    }
+    document.addEventListener('mousemove', e => moveTrail(e.clientX, e.clientY));
+    document.addEventListener('touchmove', e => {
+      const t = e.touches[0];
+      moveTrail(t.clientX, t.clientY);
+    }, { passive: true });
+  </script>
+
+  <!-- Navigation -->
   <nav>
     <a onclick="showSection('home')">Home</a>
     <a onclick="showSection('gallery')">Gallery</a>
   </nav>
 
+  <!-- Main Content -->
   <main>
-    <section id="home" class="section active">
+    <section id="home" class="active">
       <h1>Welcome to Abdul Salam's World</h1>
-      <img src="images/IMG-20250516-WA0027.jpg" alt="Abdul Salam" class="round-image" title="This is Abdul Salam! Click for fun!" />
+      <img src="https://raw.githubusercontent.com/thahim/ast/main/images/IMG-20250516-WA0027.jpg"
+           alt="Abdul Salam" class="round-image"
+           title="This is Abdul Salam! Click for fun!" data-caption="Hello from Abdul Salam! Keep exploring and having fun!" />
       <p>This is a fun space made just for Abdul Salam, filled with joy, color, and adventures!</p>
+      <button class="btn" onclick="alert('Superhero mode activated!')">Activate Superhero Mode</button>
 
       <div class="info-box">
         <h2>About Abdul Salam</h2>
         <p>Abdul Salam loves exploring new things, playing with drones, and learning about technology.</p>
-        <p>Check out his favorite videos on <a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a> and follow him on <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>.</p>
-      </div>
-
-      <div class="info-box">
-        <h2>Learn & Play</h2>
-        <p>Want to know more? Visit the <a href="https://en.wikipedia.org/wiki/Technology" target="_blank" rel="noopener">Technology Wiki</a> or explore fun games like <a href="https://www.coolmathgames.com/" target="_blank" rel="noopener">Cool Math Games</a>.</p>
+        <p>Check out his favorite videos on <a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a>
+        and follow him on <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>.</p>
       </div>
     </section>
 
     <section id="gallery" class="section">
       <h1>Gallery</h1>
       <div class="gallery">
-        <img src="/images/20180711_122721.jpg" alt="Fun moment 1" class="round-image" />
-        <img src="https://github.com/thahim/ast/blob/main/images/20180712_153354.jpg" alt="Fun moment 2" class="round-image" />
-        <img src="https://github.com/thahim/ast/blob/main/images/20180713_140814.jpg" alt="Fun moment 3" class="round-image" />
+        <!-- Family Photos -->
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20250516_161209_Photos.jpg"
+             alt="With Uncle Shahid Thahim" class="round-image"
+             data-caption="Photo with Uncle Shahid Thahim" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20200526-030001_Photos.jpg"
+             alt="Magic Museum Malaysia" class="round-image"
+             data-caption="Me at Magic Museum, Malaysia" />
+        <!-- ...add the rest in same pattern... -->
+
+        <!-- Superhero Image -->
+        <img src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png"
+             alt="Superman" class="round-image"
+             data-caption="Superman soaring through the skies!" />
       </div>
     </section>
   </main>
 
-<script>
-  // Pointer trail effect
-  const trail = document.getElementById("trail");
-  document.addEventListener("mousemove", (e) => {
-    trail.style.top = e.clientY + "px";
-    trail.style.left = e.clientX + "px";
-  });
+  <!-- Modal Lightbox -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <img id="modal-img" src="" alt="" />
+      <div id="modal-caption" class="modal-caption"></div>
+    </div>
+  </div>
 
-  // Navigation toggle
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
+  <script>
+    // Section toggle
+    function showSection(id){
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
 
-  // Optional: fun click on main image
-  document.querySelector('.round-image').addEventListener('click', () => {
-    alert('Hello from Abdul Salam! Keep exploring and having fun!');
-  });
-</script>
+    // Lightbox
+    const images = document.querySelectorAll('.round-image');
+    const modal   = document.getElementById('modal');
+    const mImg    = document.getElementById('modal-img');
+    const mCap    = document.getElementById('modal-caption');
+
+    images.forEach(img=>{
+      img.addEventListener('click', ()=>{
+        mImg.src = img.src;
+        mCap.textContent = img.getAttribute('data-caption') || img.alt;
+        modal.classList.add('active');
+      });
+    });
+    function closeModal(){
+      modal.classList.remove('active');
+    }
+  </script>
 </body>
 </html>
