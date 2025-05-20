@@ -22,72 +22,68 @@
     body {
       font-family: 'Fredoka One', cursive;
       background: linear-gradient(to bottom right, #6a0dad, #b19cd9);
-      color: white;
-      overflow-x: hidden;
-      position: relative;
+      color: white; overflow-x: hidden; position: relative;
       cursor: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUyIDAgMTAgNC40OCAxMCAxMHMtNC40OCAxMC0xMCAxMFMyIDE3LjUyIDIgMTJjMC01LjUyIDQuNDgtMTAgMTAtMTB6bTAgMmMtNC40MyAwLTggMy41Ny04IDhzMy41NyA4IDggOCA4LTMuNTcgOC04LTMuNTctOC04LTggeiIvPjwvc3ZnPg==') 12 12, auto;
     }
     nav {
-      background: rgba(255,255,255,0.2);
-      padding: 1rem; display: flex;
-      justify-content: center; gap: 2rem;
+      background: rgba(255,255,255,0.2); padding: 1rem;
+      display: flex; justify-content: center; gap: 2rem;
     }
     nav a {
-      color: white; text-decoration: none;
-      font-size: 1.2rem; transition: color .3s;
+      color: white; text-decoration: none; font-size: 1.2rem;
+      transition: color .3s;
     }
     nav a:hover { color: #ff69b4; text-shadow: 0 0 5px #ff69b4; }
-
     main {
-      max-width: 900px; margin: 2rem auto;
-      text-align: center; padding: 0 1rem;
+      max-width: 900px; margin: 2rem auto; text-align: center; padding: 0 1rem;
     }
-    h1 { margin-bottom: 1rem; }
+    h1 { margin-bottom: 0.5rem; }
 
-    /* ─────────────────────────────────────────────────────────────────────────
-       Image Styles & Modal
-    ───────────────────────────────────────────────────────────────────────── */
+    /* School Header */
+    .school-header {
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem; gap: 0.5rem;
+    }
+    .school-logo {
+      width: 40px; height: auto; border-radius: 4px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    }
+    .school-header span {
+      font-size: 1rem; color: #ffeb3b;
+      text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    }
+
+    /* Images & Modal */
     .round-image {
-      border-radius: 50%;
-      width: 220px; height: 220px;
-      object-fit: cover;
-      margin: 1rem auto;
+      border-radius: 50%; width: 220px; height: 220px;
+      object-fit: cover; margin: 1rem auto;
       border: 5px solid white;
-      transition: transform .6s ease, box-shadow .6s ease;
-      cursor: pointer;
-      display: block;
+      transition: transform .6s, box-shadow .6s;
+      cursor: pointer; display: block;
     }
     .round-image:hover {
       transform: scale(1.1) rotate(10deg);
       box-shadow: 0 0 15px 5px #ff69b4;
     }
-
-    /* Gallery grid */
     .gallery {
-      display: flex; flex-wrap: wrap;
-      justify-content: center; gap: 1rem;
-      margin-top: 2rem;
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 1rem; margin-top: 2rem;
     }
     .gallery img { width: 140px; height: 140px; border: 3px solid white; }
 
-    /* Modal overlay */
     .modal {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: none; align-items: center; justify-content: center;
-      animation: fadeIn 0.8s forwards;
-      z-index: 10000;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8); display: none;
+      align-items: center; justify-content: center;
+      animation: fadeIn .8s forwards; z-index: 10000;
     }
     .modal.active { display: flex; }
     .modal-content {
-      position: relative;
-      max-width: 90%; max-height: 90%;
-      animation: zoomIn 0.6s ease;
+      position: relative; max-width: 90%; max-height: 90%;
+      animation: zoomIn .6s ease;
     }
     .modal-content img {
-      width: 100%; height: auto;
-      border-radius: 10px;
+      width: 100%; height: auto; border-radius: 10px;
     }
     .modal-caption {
       color: #ff69b4; text-align: center;
@@ -102,58 +98,49 @@
     }
 
     /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0 } to { opacity: 1 }
-    }
-    @keyframes zoomIn {
-      from { transform: scale(0.8) } to { transform: scale(1) }
-    }
+    @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes zoomIn { from { transform: scale(0.8) } to { transform: scale(1) } }
 
-    /* ─────────────────────────────────────────────────────────────────────────
-       Button Styles
-    ───────────────────────────────────────────────────────────────────────── */
+    /* Button */
     .btn {
-      display: inline-block;
-      margin: 1rem; padding: .8rem 1.6rem;
-      background: #ff69b4; border: none;
-      border-radius: 8px; font-size: 1rem;
-      cursor: pointer; transition: transform .3s ease, box-shadow .3s ease;
+      display: inline-block; margin: 1rem; padding: .8rem 1.6rem;
+      background: #ff69b4; border: none; border-radius: 8px;
+      font-size: 1rem; cursor: pointer;
+      transition: transform .3s, box-shadow .3s;
     }
     .btn:hover {
       transform: scale(1.05);
       box-shadow: 0 0 10px #ff69b4;
     }
 
-    /* ─────────────────────────────────────────────────────────────────────────
-       Falling Stars & Hearts
-    ───────────────────────────────────────────────────────────────────────── */
+    /* Falling Stars & Hearts */
     .particle {
       position: fixed; top: -2rem; width: 1rem; height: 1rem;
-      opacity: 0.8; z-index: 5000;
-      animation: fall 15s linear infinite;
+      opacity: .8; z-index: 5000;
+      animation: fall linear infinite;
     }
-    .particle.star { background: url('data:image/svg+xml;utf8,\
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
-      <path fill="gold" d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21z"/>\
-      </svg>') no-repeat center/contain;
+    .particle.star {
+      background: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+<path fill="gold" d="M12 17.27L18.18 21L16.54 13.97L22 9.24\
+L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21z"/>\
+</svg>') no-repeat center/contain;
     }
-    .particle.heart { background: url('data:image/svg+xml;utf8,\
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
-      <path fill="hotpink" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5C2 5.42 \
-        4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 \
-        3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 \
-        8.5c0 3.78-3.4 6.86-8.55 \
-        11.54L12 21.35z"/>\
-      </svg>') no-repeat center/contain;
+    .particle.heart {
+      background: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+<path fill="hotpink" d="M12 21.35l-1.45-1.32C5.4 15.36\
+2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09\
+C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5c0 3.78\
+-3.4 6.86-8.55 11.54L12 21.35z"/>\
+</svg>') no-repeat center/contain;
     }
     @keyframes fall {
       0% { transform: translateY(-2rem) rotate(0deg); }
       100% { transform: translateY(120vh) rotate(360deg); }
     }
 
-    /* ─────────────────────────────────────────────────────────────────────────
-       Pointer Trail
-    ───────────────────────────────────────────────────────────────────────── */
+    /* Pointer Trail */
     .pointer-trail {
       position: fixed; width: 12px; height: 12px;
       background: radial-gradient(circle,#ff69b4,#a020f0);
@@ -161,22 +148,20 @@
       z-index: 9999; transition: top .03s, left .03s;
     }
     @media (pointer: coarse) {
-      /* larger trail on touch devices */
       .pointer-trail { width: 20px; height: 20px; }
     }
   </style>
 </head>
-
 <body>
   <!-- Falling particles -->
   <script>
     const count = 30;
-    for(let i=0;i<count;i++){
+    for (let i = 0; i < count; i++) {
       const p = document.createElement('div');
-      p.className = 'particle ' + (Math.random()<0.5?'star':'heart');
-      p.style.left = (Math.random()*100)+'vw';
-      p.style.animationDuration = (10 + Math.random()*20)+'s';
-      p.style.opacity = 0.5 + Math.random()*0.5;
+      p.className = 'particle ' + (Math.random() < 0.5 ? 'star' : 'heart');
+      p.style.left = (Math.random() * 100) + 'vw';
+      p.style.animationDuration = (10 + Math.random() * 20) + 's';
+      p.style.opacity = 0.5 + Math.random() * 0.5;
       document.body.appendChild(p);
     }
   </script>
@@ -185,7 +170,7 @@
   <div id="trail" class="pointer-trail"></div>
   <script>
     const trail = document.getElementById('trail');
-    function moveTrail(x,y){
+    function moveTrail(x, y) {
       trail.style.left = (x - trail.offsetWidth/2) + 'px';
       trail.style.top  = (y - trail.offsetHeight/2) + 'px';
     }
@@ -206,9 +191,21 @@
   <main>
     <section id="home" class="active">
       <h1>Welcome to Abdul Salam's World</h1>
-      <img src="https://raw.githubusercontent.com/thahim/ast/main/images/IMG-20250516-WA0027.jpg"
-           alt="Abdul Salam" class="round-image"
-           title="This is Abdul Salam! Click for fun!" data-caption="Hello from Abdul Salam! Keep exploring and having fun!" />
+      <!-- School Header -->
+      <div class="school-header">
+        <img
+          src="https://fps.edu.pk/wp-content/uploads/2018/10/FPS-Eagle-Mascot-Logo.png"
+          alt="FPS Eagle Mascot Logo"
+          class="school-logo"
+        />
+        <span>Foundation Public School Junior Defence Campus Karachi</span>
+      </div>
+      <img
+        src="https://raw.githubusercontent.com/thahim/ast/main/images/IMG-20250516-WA0027.jpg"
+        alt="Abdul Salam"
+        class="round-image"
+        data-caption="Hello from Abdul Salam! Keep exploring and having fun!"
+      />
       <p>This is a fun space made just for Abdul Salam, filled with joy, color, and adventures!</p>
       <button class="btn" onclick="alert('Superhero mode activated!')">Activate Superhero Mode</button>
 
@@ -223,16 +220,59 @@
     <section id="gallery" class="section">
       <h1>Gallery</h1>
       <div class="gallery">
-        <!-- Family Photos -->
         <img src="https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20250516_161209_Photos.jpg"
              alt="With Uncle Shahid Thahim" class="round-image"
              data-caption="Photo with Uncle Shahid Thahim" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20250516_161156_Photos.jpg"
+             alt="With Uncle Mohammad Bachal Shah" class="round-image"
+             data-caption="Uncle Mohammad Bachal Shah" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20250516_161121_Photos.jpg"
+             alt="Raaina and Zaariya" class="round-image"
+             data-caption="Raaina and Zaariya" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20250516_161020_Photos.jpg"
+             alt="Me, Mamu Muhammad and Sabrina" class="round-image"
+             data-caption="Me, Mamu Muhammad and Sabrina" />
         <img src="https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20200526-030001_Photos.jpg"
              alt="Magic Museum Malaysia" class="round-image"
              data-caption="Me at Magic Museum, Malaysia" />
-        <!-- ...add the rest in same pattern... -->
-
-        <!-- Superhero Image -->
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/Screenshot_20200131-171822_Photos.jpg"
+             alt="Foundation Public School Hyderabad" class="round-image"
+             data-caption="At my school Foundation Public School Hyderabad" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/FB_IMG_1711472256239.jpg"
+             alt="Gallery Photos" class="round-image" data-caption="Gallery photos fun times" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20240906_131245(1).jpg"
+             alt="Temple City Thailand" class="round-image" data-caption="Temple City - Thailand" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20240904_094405(1).jpg"
+             alt="Pattaya Thailand with Baba" class="round-image"
+             data-caption="Pattaya Thailand with Baba" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20240901_095239(1).jpg"
+             alt="Pattaya" class="round-image" data-caption="Pattaya beach day" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20180717_125010.jpg"
+             alt="Smurf" class="round-image" data-caption="Smurf fun" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20180715_081519.jpg"
+             alt="Malaysia" class="round-image" data-caption="Malaysia memories" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20180714_172558(1).jpg"
+             alt="Me in Malaysia" class="round-image"
+             data-caption="Me in Malaysia" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20180714_152723.jpg"
+             alt="Me with Baba at Magic Museum" class="round-image"
+             data-caption="Me with Baba at Magic Museum Malaysia" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20180714_133430(1).jpg"
+             alt="Me and Baba" class="round-image" data-caption="Me and Baba" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20180713_184537.jpg"
+             alt="Hotel Seaview Malaysia" class="round-image"
+             data-caption="Hotel Seaview, Malaysia 🇲🇾" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20180713_140814.jpg"
+             alt="Airport" class="round-image" data-caption="Airport adventures" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20180712_153354.jpg"
+             alt="Blue Mosque Malaysia" class="round-image"
+             data-caption="Blue Mosque, Malaysia 🇲🇾" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20180711_122721.jpg"
+             alt="Baba and Me" class="round-image"
+             data-caption="Baba and Me" />
+        <img src="https://raw.githubusercontent.com/thahim/ast/main/images/20180710_213734.jpg"
+             alt="Baba and Me" class="round-image" data-caption="Baba and Me (night)" />
+        <!-- Superman demo -->
         <img src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png"
              alt="Superman" class="round-image"
              data-caption="Superman soaring through the skies!" />
@@ -257,12 +297,12 @@
     }
 
     // Lightbox
-    const images = document.querySelectorAll('.round-image');
-    const modal   = document.getElementById('modal');
-    const mImg    = document.getElementById('modal-img');
-    const mCap    = document.getElementById('modal-caption');
+    const imgs = document.querySelectorAll('.round-image');
+    const modal = document.getElementById('modal');
+    const mImg   = document.getElementById('modal-img');
+    const mCap   = document.getElementById('modal-caption');
 
-    images.forEach(img=>{
+    imgs.forEach(img=>{
       img.addEventListener('click', ()=>{
         mImg.src = img.src;
         mCap.textContent = img.getAttribute('data-caption') || img.alt;
